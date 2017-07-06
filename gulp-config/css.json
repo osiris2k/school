@@ -1,0 +1,14 @@
+{
+    "sass_config": {
+        "watch_path": "./src/sass/**/*.scss",
+        "source_path": "./src/sass/",
+        "target_less_filename": "main.scss",
+        "compiled_filename": "styles.min.css",
+        "compiled_output": "./public/templates/publico/styles/"
+    },
+    "css_config": {
+        "tmp_concat_path": "./tmp/",
+        "dist_path": "./dist/styles/",
+        "dist_filename": "styles.css"
+    }
+}

@@ -1,0 +1,250 @@
+[pc-modal]{
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  overflow: hidden;
+
+  .slick-prev, .slick-next {
+    position: fixed;
+    right: 0;
+    width: 74px;
+    height: 50%;
+    background: #1d1d1d;
+    left: auto;
+    overflow: hidden;
+    @include media-breakpoint-down(md) {
+      width: 50%;
+      height: 60px;
+    }
+    &:before {
+      content: none;
+    }
+    span {
+      position: absolute;
+      height: auto;
+      left: 0;
+      top: auto;
+      bottom: 0;
+      padding-top: 100%;
+      @include media-breakpoint-down(md) {
+        height: 100%;
+        width: 60px;
+        padding-top: 0;
+      }
+      &:before, &:after {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 6;
+        content: "\e914";
+        color: $brand-night;
+        font-family: 'publico' !important;
+        font-size: 20px;
+        line-height: 74px;
+        transition-duration: .45s;
+        transition-property: left,opacity;
+        transition-delay: 0s;
+        transition-timing-function: ease-in-out;
+        backface-visibility: hidden;
+        @include media-breakpoint-down(md) {
+          line-height: 60px;
+        }
+      }
+      &:before {
+        left: -100%;
+        opacity: 0;
+      }
+      &:after {
+        left: 0;
+      }
+    }
+    &:hover {
+      span {
+        &:before {
+          left: 0;
+          opacity: 1;
+        }
+        &:after {
+          left: 100%;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  .slick-prev {
+    top: 0;
+    @include media-breakpoint-down(md) {
+      top: auto;
+      bottom: 0;
+      right: auto;
+      left: 0;
+    }
+    span {
+      @include media-breakpoint-down(md) {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+  .slick-next {
+    bottom: 0;
+    &:after {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: rgba($brand-night,.3);
+      content: "";
+      left: 0;
+      top: 0;
+      @include media-breakpoint-down(md) {
+        height: 100%;
+        width: 1px;
+      }
+    }
+    span {
+      top: 1px;
+      bottom: auto;
+      @include media-breakpoint-down(md) {
+        top: 0;
+      }
+      &:before, &:after {
+        content: "\e913";
+      }
+    }
+  }
+  .slick-slide {
+    position: relative;
+    // &:before {
+    //   display: block;
+    //   content: "";
+    //   width: 100%;
+    //   padding-top: percentage(780/614);
+    // }
+
+    figure {
+      margin: 0;
+    }
+    img {
+      position: relative;
+      width: auto;
+      height: 100%;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+
+
+  .modal-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+  }
+  .va-outer{
+    display: table;
+    width: 100%;
+    height: 100%;
+  }
+  .va-inner{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal-content{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    // height: 100%;
+    background-color: $black;
+  }
+
+  .modal-close {
+    width: 74px;
+    height: 74px;
+    background-color: #1d1d1d;
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 1;
+    @include media-breakpoint-down(md) {
+      width: 60px;
+      height: 60px;
+    }
+    .modal-close-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      span {
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background-color: $brand-night;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        top: 0;
+        margin: auto;
+        overflow: hidden;
+        transition: .5s cubic-bezier(.545,2,.47,.82);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        &:nth-child(1) {
+          transform: translateZ(0) rotate(-45deg);
+        }
+        &:nth-child(2) {
+          transform: translateZ(0) rotate(45deg);
+        }
+        &:nth-child(3) {
+          opacity: 0;
+          transform: translateZ(0) translateY(0);
+        }
+      }
+    }
+  }
+
+  // animation
+  .modal-overlay {
+    opacity: 0;
+    transition: opacity .3s $easeOutQuint;
+  }
+  .modal-content {
+    opacity: 0;
+    transform: scale(1.05) translate3d(0,0,0);
+
+    transition: transform .4s $easeOutQuint, opacity .3s $easeOutQuint;
+  }
+  &.is-visible {
+    .modal-overlay {
+      opacity: 1;
+
+      transition: opacity .3s $easeOutQuint;
+    }
+    .modal-content {
+      opacity: 1;
+      transform: scale(1) translate3d(0,0,0);
+      transition: transform .4s $easeOutQuint, opacity .3s $easeOutQuint;
+    }
+  }
+}

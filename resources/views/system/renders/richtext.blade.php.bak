@@ -1,0 +1,2 @@
+<label class="control-label">{{$lable or $name}}</label>
+ <textarea name="{{$variable_name}}" class="summernote">@if(isset($obj)) {{CmsHelper::getValueByPropertyID($obj->id,$id,$page,$options_form)}}@endif </textarea>

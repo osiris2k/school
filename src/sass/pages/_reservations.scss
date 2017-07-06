@@ -1,0 +1,520 @@
+
+$reservations-color: #1d1d1d;
+$reservations-bg-color: #faf9f4;
+$reservations-border-color: #373737;
+.reservations {
+  position: fixed;
+  // top: 0;
+  // bottom: 0;
+  left: 74px;
+  right: 74px;
+  text-align: center;
+  z-index: 997;
+  @include media-breakpoint-down(md) {
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  @media (max-width: 360px) {
+    bottom: 50px;
+  }
+
+  .reservations-container {
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    background-color: $reservations-bg-color;
+  }
+  .reservations-content {
+    position: relative;
+    z-index: 2;
+    // padding-left: 140px;
+    // padding-right: 140px;
+    padding-left: percentage(140 / $page-w-inner);
+    padding-right: percentage(140 / $page-w-inner);
+
+
+    // @include fp(padding-left,55,140, $start:1024, $end:1380);
+    // @include fp(padding-right,55,140, $start:1024, $end:1380);
+    padding-top: 60px - 4;
+    padding-bottom: 60px;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+
+    @include media-breakpoint-down(lg) {
+      padding-left: percentage(100 / $page-w-inner);
+      padding-right: percentage(100 / $page-w-inner);
+    }
+
+    @include media-breakpoint-down(md) {
+      @include fp(padding-left,15,55);
+      @include fp(padding-right,15,55);
+    }
+    // font-size: 17px;
+    @include fp(font-size,12.62,17, $start:1024, $end: 1380);
+
+    @include media-breakpoint-down(md) {
+      @include fp(font-size,13,17, $end: 991);
+    }
+  }
+
+  p {
+    color: $reservations-color;
+    font-size: em(15,17);
+    line-height: em(22,15);
+    letter-spacing: 0.025em;
+    margin: 0;
+  }
+
+  .backgrounds, .background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .backgrounds {
+    background: $brand;
+  }
+
+  .background {
+    background-color: $reservations-bg-color;
+  }
+
+  // toggle
+  // transform-origin: left center;
+  // transform: translate3d(100%,0,0);
+  // transition-property: transform;
+  // transition-duration: .6s;
+  // transition-timing-function: ease-in-out;
+
+  &.reservations-is-open {
+    width: calc(100% - 148px);
+    height: 100%;
+
+    // transform: translate3d(0,0,0);
+    // transition-property: transform;
+    // transition-duration: .6s;
+    // transition-timing-function: ease-in-out;
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      z-index: 1001;
+      height: auto;
+      top: 0;
+    }
+    .reservations-container {
+      display: block;
+    }
+  }
+}
+
+.reservations-form {
+  position: relative;
+  margin-top: em(60 - 7,17);
+  h2 {
+    color: $reservations-color;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-left: em(10,17);
+    padding-right: em(10,17);
+    background-color: $reservations-bg-color;
+    margin: 0;
+    padding-top: 2px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    @include media-breakpoint-down(sm) {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      padding-top: 0;
+    }
+  }
+
+  .form-block {
+    margin-top: em(60,17);
+    &:first-of-type{
+      margin-top: 0;
+    }
+    &.form-block-buttons {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction:row-reverse;
+      @include media-breakpoint-down(sm) {
+        display: block;
+      }
+    }
+    > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      &:last-child {
+        > li {
+          border-bottom: 3px solid $reservations-border-color;
+        }
+      }
+      > li {
+        border-top: 3px solid $reservations-border-color;
+        position: relative;
+        flex: 0 0 100%;
+        max-width: 100%;
+        &.col-form-4 {
+          flex: 0 0 33.33333%;
+          max-width: 33.33333%;
+          @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+        }
+        &.col-form-6 {
+          flex: 0 0 50%;
+          max-width: 50%;
+          @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+        }
+        &.col-form-8 {
+          flex: 0 0 66.66667%;
+          max-width: 66.66667%;
+          @include media-breakpoint-down(sm) {
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+        }
+        &:not(:last-child) {
+          .form-group {
+            position: relative;
+            border-right: 1px solid $reservations-border-color;
+            @include media-breakpoint-down(sm) {
+              border-right: 0;
+            }
+          }
+        }
+      }
+      &.form-lists {
+        margin-bottom: em(70,17);
+        > li {
+          height: auto;
+          @include media-breakpoint-down(sm) {
+            border-top: 0;
+            border-bottom: 0;
+          }
+          .form-group {
+            height: 100%;
+            padding-top: em(40 - 3,17);
+            padding-bottom: em(40 - 6,17);
+            padding-left: em(40,17);
+            padding-right: em(40,17);
+            @include media-breakpoint-down(md) {
+              padding-left: em(20,17);
+              padding-right: em(20,17);
+            }
+            @include media-breakpoint-down(sm) {
+              padding-bottom: 0;
+              padding-left: 0;
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: em(75,17);
+    text-align: left;
+  }
+
+  label {
+    color: $reservations-color;
+    font-size: 1em;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding-left: em(30,17);
+    display: flex;
+    align-items: center;
+  }
+
+  .form-control {
+    color: $reservations-color;
+    font-size: 1em;
+    font-family: $font-family-base;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background-color: $reservations-bg-color;
+    height: 100%;
+    padding-left: em(30,17);
+    padding-right: em(30,17);
+  }
+
+  button {
+    font-size: 1em;
+    font-family: $font-family-base;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+    @include media-breakpoint-down(sm) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &[type="submit"] {
+      color: $brand;
+    }
+    &[type="reset"] {
+      color: #999999;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+      transform: none !important;
+    }
+    ~ button {
+      margin-right: em(100, 17);
+      @include media-breakpoint-down(sm) {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: em(30,17);
+      }
+    }
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    + label {
+      font-size: em(30,17);
+      line-height: 1;
+      white-space: normal;
+      padding-left: em(30,30);
+      align-items: flex-start;
+
+      @include media-breakpoint-down(md) {
+        font-size: em(25,17);
+      }
+      @include media-breakpoint-down(sm) {
+        font-size: em(30,17);
+      }
+      &:before, &:after {
+        top: em(3,30);
+      }
+    }
+  }
+  .pikaday__container {
+        display: flex;
+        align-items: center;
+  }
+}
+
+.reservations-thankyou {
+  h2 {
+    font-size: em(36,17);
+    ~ p {
+      margin-top: 1em;
+    }
+  }
+}
+
+
+.selectric-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.selectric {
+  border: 0;
+  background: #faf9f4;
+  height: 100%;
+  .label {
+    display: flex;
+    align-items: center;
+    color: $reservations-color;
+    font-size: 1em;
+    font-family: $font-family-base;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background-color: $reservations-bg-color;
+    height: 100%;
+    margin: 0;
+    padding-left: em(30,17);
+    padding-right: em(30,17);
+  }
+  .button {
+    display: none;
+  }
+}
+.selectric-items {
+  box-shadow: none;
+  border: 3px solid $reservations-border-color;
+  background: #faf9f4;
+  ul, li {
+    color: $reservations-color;
+    font-size: 1em;
+    font-family: $font-family-base;
+    line-height: normal;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  li {
+    padding-top: em(15,17);
+    padding-bottom: em(15,17);
+    padding-left: em(30,17);
+    padding-right: em(30,17);
+    &.highlighted {
+      color: #1d1d1d;
+background: $brand;
+    }
+    &:hover {
+      color: #1d1d1d;
+background: $brand;
+    }
+  }
+}
+
+// toggle
+// .reservations-container p {
+//   opacity: 0;
+//   transition-property: opacity;
+//   transition-delay: .6s;
+// }
+// .reservations-form{
+//   h2{
+//     opacity: 0;
+//     transition-property: opacity;
+//     transition-delay: .6s;
+//   }
+//   .form-lists > *,.form-block .row > *, .form-block-buttons > *{
+//     .form-group{
+//       opacity: 0;
+//       transition-property: opacity;
+//       transition-delay: .6s;
+//     }
+//     &:after{
+//       transition-property: transform;
+//       transition-delay: .6s;
+//       transform-origin: right top;
+//       transform: scale(1,0);
+//     }
+//   }
+//   .form-block-buttons > *{
+//     opacity: 0;
+//     transition-property: opacity;
+//     transition-delay: .6s;
+//   }
+//   ul{
+//     &:before,&:after{
+//       transition-property: transform;
+//       transition-delay: .6s;
+//       transform-origin: right center;
+//       transform: scale(0,1);
+//     }
+//   }
+//
+// }
+// .reservations-is-open {
+//   .reservations-container p{
+//     opacity: 1;
+//     transition-property: opacity;
+//     transition-duration: .45s;
+//     transition-delay: .5s;
+//     transition-timing-function: ease-in-out;
+//   }
+//   .reservations-form{
+//     h2{
+//       opacity: 1;
+//       transition-property: opacity;
+//       transition-duration: .45s;
+//       transition-delay: .55s;
+//       transition-timing-function: ease-in-out;
+//     }
+//     .form-lists > *,.form-block .row > *{
+//       .form-group{
+//         opacity: 1;
+//         transition-property: opacity;
+//         transition-duration: .45s;
+//         transition-timing-function: ease-in-out;
+//       }
+//
+//       &:after{
+//         transform: scale(1,1);
+//
+//         transition-property: transform;
+//         transition-duration: .45s;
+//         transition-timing-function: ease-in-out;
+//       }
+//
+//       @for $i from 1 through 3{
+//         &:nth-child(#{$i}){
+//           .form-group{
+//             transition-delay: .8 + (3 - $i) * 0.1 + s;
+//           }
+//           &:after{
+//             transition-delay: .5 + (3 - $i) * 0.1 + s;
+//           }
+//         }
+//       }
+//     }
+//     .form-block-buttons > *{
+//       opacity: 1;
+//       transition-property: opacity;
+//       transition-duration: .45s;
+//       transition-timing-function: ease-in-out;
+//       @for $i from 1 through 3{
+//         &:nth-child(#{$i}){
+//           transition-delay: 1 + (3 - $i) * 0.1 + s;
+//         }
+//       }
+//     }
+//     ul{
+//       &:before,&:after{
+//         transform: scale(1,1);
+//
+//         transition-property: transform;
+//         transition-duration: .75s;
+//         transition-timing-function: ease-in-out;
+//       }
+//       @for $i from 1 through 5{
+//         &:nth-child(#{$i}){
+//           &:before{
+//             transition-delay: .3 + $i * 0.1 + s;
+//           }
+//           &:after{
+//             transition-delay: .4 + $i * 0.1 + s;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

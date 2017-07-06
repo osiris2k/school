@@ -1,0 +1,128 @@
+.loading-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 99999;
+
+  .loading {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    z-index: 2;
+    span{
+      display: block;
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+    }
+  }
+  .loading-progress {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    right: 100%;
+    top: 0;
+    background-color: $brand;
+    font-size: 0;
+    transition-origin: left center;
+    transition-property: transform;
+    transition-duration: .3s;
+    transition-timing-function: $easeOutQuart;
+  }
+}
+
+// theme
+.home-day-anim{
+  .loading-container{
+    .loading{
+      span{
+        &.fg{
+          background-color: $brand;
+        }
+        &.bg{
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.home-night-anim{
+  .loading-container{
+    .loading{
+      span{
+        &.fg{
+          background-color: $brand-night;
+        }
+        &.bg{
+          background-color: $brand-2;
+        }
+      }
+    }
+  }
+}
+
+
+#page{
+  opacity: 0;
+  .main {
+    position: relative;
+    transform-origin: center top;
+    transform: scale(1) translate3d(0,200px,0);
+  }
+}
+
+body.loaded {
+
+  #page {
+    opacity: 1;
+  }
+}
+
+.loading{
+  &.load-in{
+    span{
+      animation-name: pc-load-in-anim;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+      &.fg{
+        animation-delay: 0.25s;
+      }
+    }
+  }
+  &.load-out{
+    span{
+      animation-name: pc-load-out-anim;
+      animation-duration: 1s;
+      animation-timing-function: ease-in-out;
+      animation-fill-mode: both;
+      &.bg{
+        animation-delay: 0.25s;
+      }
+    }
+  }
+}
+
+
+// animation
+@keyframes pc-load-out-anim{
+  0%{
+    transform: translate3d(0,0,0);
+  }
+  100%{
+    transform: translate3d(101%,0,0);
+  }
+}
+
+@keyframes pc-load-in-anim{
+  0%{
+    transform: translate3d(-100%,0,0);
+  }
+  100%{
+    transform: translate3d(0,0,0);
+  }
+}

@@ -1,0 +1,475 @@
+
+
+.home-day {
+  background-color: $brand;
+  .sec-three-zone {
+    .wrapper {
+      background-image: url(../assets/images/background/white-marble.jpg);
+    }
+  }
+
+  // FOOTER
+  .footer {
+    .footer-bottom:before {
+      background-color: #84af9a;
+      background-image: url(../assets/images/footer/bg-pattern-1.svg);
+    }
+  }
+
+
+  .header {
+    .menu-switch {
+      p {
+        &:after {
+          @include media-breakpoint-down(md) {
+            border-top: em(7,18) solid transparent;
+            border-bottom: em(7,18) solid transparent;
+            border-right: em(7,18) solid currentColor;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.home-night {
+  background-color: $brand-night;
+
+  .header {
+    background-color: #131313;
+    @include media-breakpoint-down(md) {
+      background-color: $white;
+    }
+  }
+  .sidebar {
+    background-color: $white;
+    @include media-breakpoint-down(md) {
+      background-color: #131313;
+    }
+    .menu-switch {
+      p {
+        color: $brand;
+        @include media-breakpoint-down(md) {
+          color: $brand-night;
+        }
+        &:after {
+          @include media-breakpoint-down(md) {
+            border-top: em(7,18) solid transparent;
+            border-bottom: em(7,18) solid transparent;
+            border-right: em(7,18) solid currentColor;
+            margin-left: 0;
+          }
+
+        }
+      }
+    }
+  }
+  .sound {
+    color: $black;
+  }
+  .menu-switch {
+    p {
+      color: $brand-night;
+      @include media-breakpoint-down(md) {
+        color: $brand;
+      }
+    }
+  }
+  .reservations {
+    .backgrounds {
+      background: $brand-night;
+      @include media-breakpoint-down(md) {
+        background: $brand;
+      }
+    }
+  }
+  .button-reservations {
+    p {
+      color: #343434;
+      @include media-breakpoint-down(md) {
+        color: $white;
+      }
+      &:before {
+        background-color: $white;
+        @include media-breakpoint-down(md) {
+          background-color: $black;
+        }
+      }
+    }
+  }
+
+  .menu-toggle {
+    .menu-toggle-inner {
+      span {
+        background-color: $white;
+        @include media-breakpoint-down(md) {
+          background-color: #000;
+        }
+      }
+    }
+  }
+
+  .dots,
+  .digit {
+    fill: rgba($white,.05);
+  }
+  .dots-on .dots {
+    fill: $white;
+  }
+  [data-hour^="1"] .digit-1 [class*="1"],
+  [data-hour^="2"] .digit-1 [class*="2"],
+  [data-hour^="3"] .digit-1 [class*="3"],
+  [data-hour^="4"] .digit-1 [class*="4"],
+  [data-hour^="5"] .digit-1 [class*="5"],
+  [data-hour^="6"] .digit-1 [class*="6"],
+  [data-hour^="7"] .digit-1 [class*="7"],
+  [data-hour^="8"] .digit-1 [class*="8"],
+  [data-hour^="9"] .digit-1 [class*="9"],
+  [data-hour^="0"] .digit-1 [class*="0"],
+
+  [data-hour$="1"] .digit-2 [class*="1"],
+  [data-hour$="2"] .digit-2 [class*="2"],
+  [data-hour$="3"] .digit-2 [class*="3"],
+  [data-hour$="4"] .digit-2 [class*="4"],
+  [data-hour$="5"] .digit-2 [class*="5"],
+  [data-hour$="6"] .digit-2 [class*="6"],
+  [data-hour$="7"] .digit-2 [class*="7"],
+  [data-hour$="8"] .digit-2 [class*="8"],
+  [data-hour$="9"] .digit-2 [class*="9"],
+  [data-hour$="0"] .digit-2 [class*="0"],
+
+  [data-minute^="1"] .digit-3 [class*="1"],
+  [data-minute^="2"] .digit-3 [class*="2"],
+  [data-minute^="3"] .digit-3 [class*="3"],
+  [data-minute^="4"] .digit-3 [class*="4"],
+  [data-minute^="5"] .digit-3 [class*="5"],
+  [data-minute^="6"] .digit-3 [class*="6"],
+  [data-minute^="7"] .digit-3 [class*="7"],
+  [data-minute^="8"] .digit-3 [class*="8"],
+  [data-minute^="9"] .digit-3 [class*="9"],
+  [data-minute^="0"] .digit-3 [class*="0"],
+
+  [data-minute$="1"] .digit-4 [class*="1"],
+  [data-minute$="2"] .digit-4 [class*="2"],
+  [data-minute$="3"] .digit-4 [class*="3"],
+  [data-minute$="4"] .digit-4 [class*="4"],
+  [data-minute$="5"] .digit-4 [class*="5"],
+  [data-minute$="6"] .digit-4 [class*="6"],
+  [data-minute$="7"] .digit-4 [class*="7"],
+  [data-minute$="8"] .digit-4 [class*="8"],
+  [data-minute$="9"] .digit-4 [class*="9"],
+  [data-minute$="0"] .digit-4 [class*="0"] { fill: $white; }
+
+
+  // FOOTER
+  .footer {
+    .footer-bottom:before {
+      background-color: #c2b569;
+      background-image: url(../assets/images/footer/bg-pattern-2.svg);
+    }
+  }
+  &.home {
+    .footer {
+
+      .social ul li a:hover {
+        color: $brand-night;
+      }
+    }
+
+  }
+
+
+  // NAVIGATION
+  .nav-wrapper {
+    // background-color: $black;
+    // @include media-breakpoint-down(md) {
+    //   background-color: $white;
+    // }
+    .nav-block {
+      background-color: $black;
+      @include media-breakpoint-down(md) {
+        background-color: $white;
+      }
+    }
+
+    .backgrounds {
+      background: $brand-night;
+      @include media-breakpoint-down(md) {
+        background-color: $brand;
+      }
+    }
+
+    .background {
+      background-color: $black;
+      @include media-breakpoint-down(md) {
+        background-color: $white;
+      }
+    }
+  }
+  .nav-letters {
+    span {
+      color: rgba($brand-night, 0.4);
+      @include media-breakpoint-down(md) {
+        color: rgba($brand, .4);
+      }
+    }
+  }
+  .nav {
+    ul.main-menu {
+      >li {
+
+        h3, span {
+          color: $white;
+          @include media-breakpoint-down(md) {
+            color: $black-dark;
+          }
+        }
+        h3 {
+          &:before {
+            background-color: $white;
+          }
+        }
+      }
+
+    }
+    .n-social {
+      ul {
+        li {
+          a {
+            color: $white;
+            @include media-breakpoint-down(md) {
+              color: $black-dark;
+            }
+            &:hover {
+              color: $brand-night;
+              @include media-breakpoint-down(md) {
+                color: $brand;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // BOX
+  .sec-box {
+    .c-block {
+      .c-block-content {
+        h3 {
+          color: $brand-night;
+        }
+        p {
+          color: $black;
+        }
+      }
+      &.box-title {
+        .c-block-image {
+          background-color: $black;
+        }
+      }
+      // PLAYLIST
+      &.box-playlist {
+        &:hover {
+          background-color: $black;
+          .c-block-content {
+            p,a {
+              color: $white;
+            }
+          }
+        }
+      }
+      &.box-text {
+        background-color: $white;
+      }
+      &.box-newsletter {
+        .c-block-content {
+          // background-color: #191919;
+          h2 {
+            color: $brand-night;
+          }
+          p {
+            color: $white;
+          }
+          .c-social {
+            ul li a {
+              color: $white;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  // 3 ZONE
+  .sec-three-zone {
+    .wrapper {
+      background-image: url(../assets/images/background/black-marble.jpg);
+      background-color: #131313;
+    }
+    .c-block {
+      .c-block-inner {
+        figure {
+          &:after {
+            outline-color: #131313;
+          }
+        }
+      }
+      .c-block-content {
+        h2 {
+          color: $white;
+        }
+        p {
+          color: #dddddd;
+        }
+      }
+      &.ratio-zone-1 {
+        top: percentage(140 / 780);
+        left: percentage(84 / 1232);
+        width: percentage(337 / 1232);
+        @include media-breakpoint-down(md) {
+          left: auto;
+          top: auto;
+          width: auto;
+        }
+        &:before {
+          padding-top: percentage(503 / 337);
+        }
+        .c-block-content {
+          width: auto;
+          top: percentage(415 / 503);
+        }
+      }
+      &.ratio-zone-2 {
+        top: percentage(129 / 780);
+        left: percentage(580 / 1232);
+        width: percentage(434 / 1232);
+        @include media-breakpoint-down(md) {
+          left: auto;
+          top: auto;
+          width: auto;
+        }
+        &:before {
+          padding-top: percentage(250 / 434);
+        }
+        .c-block-content {
+          top: percentage(240 / 250);
+          left: 0;
+          margin-left: 20px;
+        }
+
+      }
+      &.ratio-zone-3 {
+        top: percentage(514 / 780);
+        left: percentage(674 / 1232);
+        width: percentage(250 / 1232);
+        @include media-breakpoint-down(md) {
+          left: auto;
+          top: auto;
+          width: auto;
+        }
+        &:before {
+          padding-top: percentage(186 / 250);
+        }
+        .c-block-content {
+          width: auto;
+          top: percentage(74 / 186);
+        }
+      }
+    }
+  }
+
+  .plyr__progress--played[value] {
+    color: $brand-night;
+  }
+
+  .form {
+    .select-wrapper {
+      &:after {
+        color: $brand-night;
+        @include media-breakpoint-down(md) {
+          color: $brand;
+        }
+      }
+      .selectric-items {
+        li {
+          &:hover, &.highlighted {
+            background: $brand-night;
+            @include media-breakpoint-down(md) {
+              background: $brand;
+            }
+          }
+        }
+      }
+    }
+    &.newsletter-form {
+      // &:before {
+      //   background-image: url(../assets/images/form/night/input-bg-left.png);
+      // }
+      // &:after {
+      //   background-image: url(../assets/images/form/night/input-bg-right.png);
+      // }
+      .form-group {
+        &:after {
+          background-color: $white;
+        }
+      }
+      .form-control {
+        color: #1d1d1d;
+        background-color: $white;
+      }
+      button {
+        i {
+          color: $brand-night;
+        }
+      }
+      ::-webkit-input-placeholder {
+        color: #1d1d1d;
+      }
+
+      :-moz-placeholder { /* Firefox 18- */
+        color: #1d1d1d;
+      }
+
+      ::-moz-placeholder {  /* Firefox 19+ */
+        color: #1d1d1d;
+      }
+
+      :-ms-input-placeholder {
+        color: #1d1d1d;
+      }
+    }
+  }
+
+  .reservations-form {
+    button[type="submit"] {
+      color: $brand-night;
+      @include media-breakpoint-down(md) {
+        color: $brand;
+      }
+    }
+    input[type=radio]+label:before, input[type=checkbox]+label:before {
+      border-color: $brand-night;
+      @include media-breakpoint-down(md) {
+        border-color: $brand;
+      }
+    }
+  }
+  .pikaday__container:before {
+    color: $brand-night;
+    @include media-breakpoint-down(md) {
+      color: $brand;
+    }
+  }
+
+
+}
+
+.touchevents {
+  .sec-three-zone .c-block .c-block-inner figure:after {
+    content: none;
+  }
+}

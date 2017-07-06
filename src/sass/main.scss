@@ -1,0 +1,61 @@
+
+
+//1. All abstract functions, mixins, variables etc.
+@import
+	'abstracts/variables',
+	'abstracts/mixins';
+
+//2. All vendors and 3rd-party stylesheet files (all in scss extension)
+@import
+	'vendors/normalize',
+	'vendors/slick',
+	'vendors/slick-theme',
+	'vendors/plyr/plyr',
+	'vendors/pikaday/pikaday-package',
+	//'vendors/select2/core';
+	'vendors/selectric/selectric';
+
+//3. Base styles
+@import
+	'base/fonts',
+	'base/reset',
+	'base/typography',
+	'base/animation';
+
+//4. The main/common layout. Header, footer, sidebar etc.
+@import
+	//'layout/grid',
+	'layout/header',
+	'layout/nav',
+	'layout/footer',
+	'layout/page',
+	'layout/column-block';
+
+//5. Component styles. Form, buttons, inputs etc.
+@import
+	'components/button',
+	'components/form',
+	'components/loading',
+	'components/modal',
+	'components/responsive-embed',
+	'abstracts/utilities',
+	'abstracts/helper';
+
+//6. Specific page styles
+@import
+	'pages/homepage',
+	'pages/section-hero',
+	'pages/section-content',
+	'pages/reservations',
+	'pages/experiences',
+	'pages/menus',
+	'pages/team',
+	'pages/private-events',
+	'pages/sweet-deals',
+	'pages/gallery',
+	'pages/threezone-modal',
+	'pages/social-feed';
+
+//7. Default themes (this file will be able to override all of your previous styles)
+@import
+	'themes/default';

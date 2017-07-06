@@ -1,0 +1,41 @@
+{
+  "name": "new_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-copy": "^1.0.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-header": "^1.8.8",
+    "gulp-image": "^2.7.5",
+    "gulp-notify": "^3.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.0.1",
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^4.3.11",
+    "pump": "^1.0.2",
+    "moment": "^2.16.0"
+  },
+  "dependencies": {
+    "fastclick": "^1.0.6",
+    "imagesloaded": "^4.1.1",
+    "jquery": "2.2.4",
+    "jquery-mousewheel": "^3.1.13",
+    "jquery.easing": "^1.4.1",
+    "jquery.scrollto": "^2.1.2",
+    "normalize.css": "^5.0.0"
+  }
+}

@@ -1,0 +1,32 @@
+.select2-selection--multiple {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  min-height: 32px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  .select2-selection__rendered {
+    display: block;
+    overflow: hidden;
+    padding-left: $form-input-padding-x;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.select2-search--inline {
+  float: left;
+  .select2-search__field {
+    box-sizing: border-box;
+    border: none;
+    font-size: 100%;
+    margin-top: 0;
+    padding: 0;
+    height: $form-input-height;
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+  }
+}

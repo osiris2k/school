@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>HTML Template</title>
+
+        <link rel="stylesheet" href="styles/styles.min.css" />
+    </head>
+    <body>
+        <header>
+           <label class="header-app-title">GULP-SASS Starter Kit</label> 
+        </header>
+        <main>
+            <div class="padd-xmed">
+                <h4>Plugin ที่มีมาให้</h4>
+                <p>
+                    <ul class="sample-lib-list">
+                        <li><strong>jQuery v2.2.4</strong> (เนื่องจาก Foundation 6 และปลั๊กอินบางตัวยังไม่รองรับ jQuery 3)</li>
+                        <li><strong>jQuery Mousewheel</strong> : ปลั๊กอินสำหรับจัดการ Mousewheel event รองรับ cross-browser ดูข้อมูลเพิ่มเติมได้<a href="https://github.com/jquery/jquery-mousewheel">ที่นี่</a></li>
+                        <li><strong>jQuery Easing</strong> : ปลั๊กอินเสริมสำหรับอนิเมชั่นเพิ่มเติม ใช้งานได้ดีกับ jQuery animation ดูข้อมูลเพิ่มเติม<a href="http://gsgd.co.uk/sandbox/jquery/easing/">ที่นี่</a></li>
+                        <li><strong>jQuery Resizestop</strong> : ใช้แทน event $(window).resize() ดูวิธีใช้งานได้<a href="https://github.com/f/jquery.resizestop">ที่นี่</a></li>           <li>
+                            <strong>Imagesloaded</strong> : ปลั๊กอินสำหรับ detect ว่ารูปใน container นั้นๆโหลดเสร็จแล้วหรือไม่ ดูวิธีการใช้งานได้<a href="http://imagesloaded.desandro.com/">ที่นี่</a>
+                        </li>
+                        <li>
+                            Mixins และ functions ของ sass โดยดูรายชื่อฟังก์ชั่นได้ที่ไฟล์ src/sass/_includes.scss <br />
+                            หากต้องการอ้างถึงเพื่อนำไปช่วยในการเขียน sass ให้อ้างถึงไฟล์นี้ไฟล์เดียวก็พอและต้องอ้างถึง path file ให้ถูกด้วย (ส่วนใหญ่ใช้ @import "../_includes")
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    ถ้าจะใช้ไฟล์นี้เป็น index และยังต้องการเก็บไฟล์นี้ไว้อ้างอิง ให้ใช้ code ในไฟล์นี้เป็น template แล้วเปลี่ยนชื่อไฟล์นี้เป็น _doc.html ก็ได้
+                </p>
+            </div>
+        </main>        
+
+        <script src="scripts/vendors.min.js"></script>
+        <script src="scripts/apps.min.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                //Now you can call any module in apps.min.js here
+                if (Main) {
+                    Main.init();
+                }
+            });
+        </script>
+    </body>
+</html>

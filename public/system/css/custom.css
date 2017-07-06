@@ -1,0 +1,154 @@
+/** Utili Css **/
+.p-t-20 {
+    padding-top: 20px;
+}
+
+.ma-t-20 {
+    margin-top: 20px;
+}
+
+.ma-l-20 {
+    margin-left: 20px;
+}
+
+.m-b-20 {
+    margin-bottom: 20px
+}
+
+.gap-20 {
+    margin-bottom: 20px;
+}
+
+.no-pad {
+    padding: 0px;
+}
+
+.cursor_sortable {
+    cursor: move;
+}
+
+.waiting_to_del {
+    opacity: 0.5 !important;
+}
+
+/** Form **/
+.form-horizontal .control-label {
+    font-weight: 700;
+}
+
+/** Button **/
+.inline-filter-bt {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+/** Table **/
+#tableDataTable > thead > tr > th {
+    text-align: center;
+}
+
+/** Render New Image **/
+.news_images_order_able {
+    /*overflow-x: hidden;*/
+    /*height: 500px;*/
+}
+
+/* Content Reorder */
+#contentReorderFilter {
+    margin-bottom: 10px;
+}
+
+.ui-sortable .ibox .ibox-title {
+    border: none;
+}
+
+/** Panel **/
+.panel-sortable {
+    height: 350px;
+    overflow-x: hidden;
+}
+
+.panel-sortable .ibox-content {
+    cursor: default;
+    min-height: 270px;
+}
+
+.panel-table a {
+    color: #333;
+}
+
+/** FancyBox **/
+.fancybox img {
+    margin-bottom: 0px;
+    width: 100%;
+}
+
+.fancybox-lock body {
+    /*overflow: initial !important;*/
+}
+
+/** Content **/
+.bt-create-dropdown {
+    width: 230px
+}
+
+/** Other Device Css **/
+
+@media screen and (min-width: 768px) {
+    .modal_new_image_manager {
+        width: 85% !important;
+    }
+
+    /** Boostrap modal **/
+    .modal-lg {
+        width: 90%;
+    }
+
+    .dashboard-dropdown {
+        width: 300px;
+    }
+
+    .contents-dropdown
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-dropdown {
+        width: 200px;
+    }
+}
+
+.colorpicker-2x .colorpicker-saturation {
+    width: 200px;
+    height: 200px;
+}
+
+.colorpicker-2x .colorpicker-hue,
+.colorpicker-2x .colorpicker-alpha {
+    width: 10px;
+    height: 200px;
+}
+
+.colorpicker-2x .colorpicker-color,
+.colorpicker-2x .colorpicker-color div {
+    height: 10px;
+}
+.colorpicker-selectors i{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+    margin: 2px;
+    border: 1px solid #999;
+}
+.colorpicker-element .add-on i, .colorpicker-element .input-group-addon i{
+    border:1px solid
+}
+
+#preview{
+    position:absolute;
+    border:0px solid #ccc;
+    background:#19aa8d;
+    padding:5px;
+    display:none;
+    color:#fff;
+    z-index: 3000;
+}

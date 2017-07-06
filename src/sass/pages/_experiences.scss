@@ -1,0 +1,145 @@
+
+body:not(.default) {
+  .logo-wrapper {
+    display: none;
+  }
+}
+// LOGO
+.logo-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 996;
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+// loaded animation
+.logo-wrapper{
+  opacity: 0;
+}
+.loaded .logo-wrapper {
+  opacity: 1;
+  transition: opacity .3s ease 1.3s;
+}
+.logo {
+  position: absolute;
+  // top: 40px;
+  // left: 40px + 74;
+  @include fp(top,30,40,$start:1024,$end:1380);
+  @include fp(left,35 + 74,40 + 74,$start:1024,$end:1380);
+  font-size: 0;
+  width: auto;
+  @include fp(height,30,40,$start:1024,$end:1380);
+  // height: auto;
+  color: $white;
+  svg {
+    width: auto;
+    height: 100%;
+    fill: currentColor;
+  }
+  &.is-light {
+    color: $white;
+  }
+  &.is-dark {
+    color: #1d1d1d;
+    &:hover, &:focus {
+      color: #1d1d1d;
+    }
+  }
+  &:hover, &:focus {
+    color: $white;
+  }
+}
+// CONTENT ARTICLE
+.content-detail {
+  @include media-breakpoint-up(xl) {
+    // padding-right: 308px;
+    padding-right: percentage(308 / $page-w-inner);
+  }
+  @include media-breakpoint-down(lg) {
+    padding-right: 0 !important;
+  }
+}
+// CONTENT SLIDER RIGHT
+.content-right {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  position: absolute;
+  right: -1px;
+  top: 0;
+  background: #eae9e5;
+  height: 100%;
+  width: percentage(308 / $page-w-inner);
+
+  @include media-breakpoint-down(lg) {
+    display: none;
+  }
+  .slider-container-right {
+    overflow: hidden;
+    position: fixed;
+    // right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    img {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      -o-object-position: center;
+      object-position: center;
+    }
+    .slider-item{
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+    }
+    &.slider-content-release{
+      position: absolute;
+    }
+  }
+}
+
+.slideshow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .slides {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .slide {
+      display: none;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      &.is-active {
+        display: block;
+      }
+      .image {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+}

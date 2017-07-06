@@ -1,0 +1,272 @@
+
+
+.form {
+  .form-group {
+    position: relative;
+  }
+
+  label {
+    margin: 0;
+  }
+  .form-control {
+    color: $black;
+    font-size: 14px;
+    font-family: $font-montserrat;
+    line-height: normal;
+    letter-spacing: 0.03em;
+
+    display: block;
+    width: 100%;
+    height: 50px;
+    padding: 0 30px;
+    background-color: $white;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  textarea.form-control {
+    height: auto;
+    resize: vertical;
+    overflow: auto;
+  }
+  button {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    &:focus {
+      outline: 0;
+    }
+    i {
+      display: block;
+    }
+  }
+  select {
+        cursor: pointer;
+  }
+  .select-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    &:after {
+      content: "\e900";
+      color: $brand;
+      font-family: 'publico' !important;
+      position: absolute;
+      z-index: 10000;
+      right: em(30,17);
+      @include center(y);
+      display: block;
+      pointer-events: none;
+    }
+  }
+
+  /* NEWS BITES & NEWSLETTER FORM*/
+  &.news-bites-form,
+  &.newsletter-form {
+    position: relative;
+    .form-group {
+      padding-bottom: 8px;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $black;
+      }
+    }
+    .form-control {
+      color: $white;
+    }
+    button {
+      position: absolute;
+      top: 0;
+      bottom: 8px;
+      right: 0;
+      width: em(42,17);
+      background: transparent;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      text-align: center;
+      i {
+        font-size: em(12,17);
+      }
+    }
+    ::-webkit-input-placeholder {
+      color: $white;
+    }
+
+    :-moz-placeholder { /* Firefox 18- */
+      color: $white;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+      color: $white;
+    }
+
+    :-ms-input-placeholder {
+      color: $white;
+    }
+  }
+
+  /* NEWS BITES FORM*/
+  &.news-bites-form {
+    .form-control {
+      color: $white;
+      background-color: $black;
+      padding-left: em(25,14);
+      padding-right: em(50,14);
+    }
+    button {
+      color: $white;
+      width: em(50,14);
+      font-size: em(12,14);
+      i {
+        color: $white;
+      }
+    }
+  }
+
+  /* NEWSLETTER FORM*/
+  &.newsletter-form {
+    margin-top: em(20 - 5,17);
+    // &:before,
+    // &:after {
+    //   content: "";
+    //   position: absolute;
+    //   bottom: 0;
+    //   background-repeat: no-repeat;
+    //   z-index: 1;
+    //   pointer-events: none;
+    // }
+    // &:before {
+    //   left: 0;
+    //   width: 31px;
+    //   height: 14px;
+    //   background-image: url(../assets/images/form/day/input-bg-left.png);
+    //   background-position: left bottom;
+    // }
+    // &:after {
+    //   right: 0;
+    //   width: 20px;
+    //   height: 16px;
+    //   background-image: url(../assets/images/form/day/input-bg-right.png);
+    //   background-position: right bottom;
+    // }
+    .form-group {
+      &:after {
+        background-color: #797979;
+      }
+    }
+    .form-control {
+      color: $white;
+      background-color: #797979;
+      padding-left: em(16,14);
+      padding-right: em(42,14);
+      height: em(50,14);
+      font-size: em(14,17);
+    }
+    button[type="submit"] {
+      i {
+        color: $brand;
+      }
+    }
+  }
+
+  /* RADIO FORM*/
+  .form-list  {
+    position: relative;
+  }
+  input[type=radio],
+  input[type=checkbox] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    z-index: 2;
+    cursor: pointer;
+
+    + label {
+      padding: 0 0 0 30px;
+      cursor: pointer;
+      position: relative;
+      &:before, &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 17px;
+        height: 17px;
+      }
+      &:before {
+        border: 2px solid $brand;
+        background-color: transparent;
+        transition-property: border-color, background-color;
+                transition-duration: 0.3s;
+                transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+      }
+      &:after {
+                transform: scale(0);
+                transform-origin: center;
+        transition-property: transform;
+
+                transition-duration: 0.3s;
+      }
+    }
+    &:not(:checked):not(:disabled):hover {
+      + label {
+        &:before {
+
+          transition-property: border-color, background-color;
+
+                  transition-duration: 0.3s;
+                  transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+          // border-color: $brand;
+        }
+      }
+    }
+    &:disabled {
+      + label {
+        cursor: default;
+        opacity: 0.5;
+      }
+    }
+  }
+  input[type=radio] {
+    + label {
+      &:before, &:after {
+        border-radius: 100%;
+      }
+      &:after {
+        background-color: #1d1d1d;
+      }
+    }
+    &:disabled {
+      + label {
+        &:after {
+          background-color: rgba(151,151,151,0.45);
+        }
+      }
+    }
+    &:checked {
+      + label {
+        &:after {
+                  transform: scale(0.5294117647058824);
+        }
+      }
+    }
+  }
+}

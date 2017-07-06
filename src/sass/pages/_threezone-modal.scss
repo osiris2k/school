@@ -1,0 +1,312 @@
+
+
+.threezone-modal {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  // background-color: #faf9f5;
+  z-index: 998;
+  // visibility: hidden;
+  // transition-property: visibility;
+  // transition-duration: .6s;
+  // transition-timing-function: ease-in-out;
+  @include media-breakpoint-down(md) {
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: 60px;
+    z-index: 1001;
+  }
+  @media (max-width: 360px) {
+    bottom: 50px;
+  }
+  // &.threezone-is-open {
+  //   visibility: visible;
+  // }
+
+  // animation
+  // opacity: 0;
+  transform: translate3d(100%,0,0);
+  transition-property: transform;
+  transition-duration: .6s;
+  transition-delay: .1s;
+  transition-timing-function: $easeInOutCubic;
+  .threezone-modal-content-inner{
+    // opacity: 0;
+    // transform: translate3d(50%,0,0);
+    // transition-property: transform;
+    // transition-delay: .1s;
+    // transition-duration: .6s;
+    // transition-timing-function: $easeInOutCubic;
+  }
+  &.threezone-is-open{
+    // opacity: 1;
+    transform: translate3d(0,0,0);
+    transition-property: transform;
+    transition-delay: .4s;
+    transition-duration: .8s;
+    transition-timing-function: $easeInOutCubic;
+    .threezone-modal-content-inner{
+      // opacity: 1;
+      // transform: translate3d(0,0,0);
+      // transition-property: transform;
+      // transition-delay: .6s;
+      // transition-duration: .8s;
+      // transition-timing-function: $easeInOutCubic;
+    }
+  }
+}
+
+//CLOSE
+.threezone-modal-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  font-size: em(32,16);
+  margin-right: 74px;
+  padding: 15px;
+  width: 1em;
+  height: 1em;
+  box-sizing: content-box;
+  @include media-breakpoint-down(md) {
+    margin-right: 0;
+  }
+}
+
+// IMAGE
+// .threezone-image-container{
+//   position: absolute;
+//   overflow: hidden;
+//   transform: translate3d(0,0,0);
+// }
+
+// CLONE IMAGE
+.threezone-modal-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // width: 100vw;
+  // height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  z-index: 997;
+  @include media-breakpoint-down(md) {
+    z-index: 1000;
+  }
+}
+
+// CONTENT
+.threezone-modal-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  padding-right: 74px;
+  background-color: #faf9f5;
+  overflow: hidden;
+
+  @include fp(font-size,11.88,16,$start:1024,$end:1380);
+
+  @include media-breakpoint-down(md) {
+    @include fp(font-size,13,16);
+    padding-right: 0;
+  }
+
+  .threezone-modal-content-outer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include fp(padding-left,60,80,$start:1024,$end:1380);
+    @include fp(padding-right,60,80,$start:1024,$end:1380);
+    height: 100%;
+    // overflow-y: scroll;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    @include media-breakpoint-down(md) {
+      padding-left: percentage(55/616);
+      padding-right: percentage(55/616);
+    }
+    @include media-breakpoint-down(xs) {
+      @include fp(padding-left,15,55);
+      @include fp(padding-right,15,55);
+    }
+  }
+
+  // LOGO
+  .threezone-modal-head {
+    margin-bottom: em(45,16);
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // LISTS
+  .threezone-modal-lists {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-around;
+
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+      border-top: 3px solid $black;
+      border-bottom: 3px solid $black;
+      padding-top: em(20,16);
+      padding-bottom: em(20,16);
+    }
+
+    .threezone-modal-list {
+      width: 100%;
+      border-top: 3px solid $black;
+      border-bottom: 3px solid $black;
+      text-align: center;
+
+      font-size: em(15,16);
+      line-height: em(26,15);
+      letter-spacing: 0.03em;
+      padding-left: em(20,15);
+      padding-right: em(20,15);
+      padding-top: em(20,15);
+      padding-bottom: em(20,15);
+
+      @include media-breakpoint-down(lg) {
+        padding-left: em(15,15);
+        padding-right: em(15,15);
+      }
+
+      @include media-breakpoint-down(xs) {
+      border-top: 0;
+      border-bottom: 0;
+      padding-top: 0;
+    padding-bottom: 0;
+    }
+
+      ~ .threezone-modal-list {
+        border-left: 1px solid $black;
+        @include media-breakpoint-down(xs) {
+          border-left: 0;
+          margin-top: 10px;
+        }
+      }
+      span {
+        color: $black;
+        text-transform: uppercase;
+      }
+      p {
+        color: #626262;
+        font-size: 1em;
+      }
+    }
+  }
+
+  // DETAIL
+  .threezone-modal-detail {
+    text-align: left;
+    padding-left: em(45,16);
+    padding-right: em(45,16);
+    padding-top: em(80,16);
+    padding-bottom: em(80,16);
+
+
+    @include media-breakpoint-down(xs) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .threezone-modal-title{
+      text-transform: uppercase;
+      font-size: em(14,16);
+      ~ p {
+        margin-top: em(30,16);
+      }
+    }
+    p {
+      color: #626262;
+      font-size: 1em;
+      line-height: em(22,16);
+      letter-spacing: 0.03em;
+      margin: 0;
+    }
+  }
+
+  // LINK
+  .threezone-modal-link {
+    display: flex;
+    justify-content: space-around;
+    @include media-breakpoint-down(xs) {
+      flex-direction: column;
+    }
+    .button {
+      font-size: em(15,16);
+      height: em(65,15);
+      border-top: 3px solid #c4b977;
+      border-bottom: 3px solid #c4b977;
+      &:after {
+        background-color: #232323;
+        transform-origin: center right;
+        @include media-breakpoint-down(xs) {
+          transform-origin: right top;
+        }
+      }
+      &:hover, &:focus {
+        color: $brand-night;
+        &:after {
+          transform-origin: center right;
+          @include media-breakpoint-down(xs) {
+            transform-origin: left top;
+          }
+        }
+        span {
+              transform: translateX(-10px);
+                  transition-delay: 75ms;
+        }
+      }
+      ~.button {
+        //border-left: 1px solid #232323;
+        @include media-breakpoint-down(xs) {
+          //border-left: 0;
+          margin-top: em(20,15);
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1px;
+          height: 100%;
+          background-color: #232323;
+          @include media-breakpoint-down(xs) {
+            content: none;
+          }
+        }
+      }
+      &:last-child {
+        &:after {
+          transform-origin: center left;
+          @include media-breakpoint-down(xs) {
+            transform-origin: right top;
+          }
+        }
+        &:hover, &:focus {
+          &:after {
+            transform-origin: center left;
+            @include media-breakpoint-down(xs) {
+              transform-origin: left top;
+            }
+          }
+          span {
+  transform: translateX(10px);
+          }
+        }
+      }
+    }
+  }
+
+
+}

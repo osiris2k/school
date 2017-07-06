@@ -1,0 +1,268 @@
+.bold{
+	font-weight: bold !important;
+}
+.fl{
+	float: left;
+}
+.icon-delete{
+	cursor: pointer;
+}
+.icon-delete:hover{
+	color: #ed5565;
+}
+.text-uppercase{
+	text-transform:uppercase;
+}
+.text-capitalize{
+	text-transform: capitalize;
+}
+
+#new-type .hr-line-dashed{
+	margin: 0;
+	padding: 20px 0;
+}
+#new-type .ibox .ibox-title{
+	border-top: 0;
+}
+.ibox-content{
+	/*overflow: hidden;*/
+	display   : inline-block;
+	width     : 100%;
+}
+#new-type .form-group{
+	overflow: hidden;
+}
+
+
+#box-type .ibox{
+	cursor       : move !important;
+	margin-bottom: 10px;
+}
+#box-type .hr-line-dashed{
+	margin : 0;
+	padding: 20px 0;
+}
+#box-type .ibox .ibox-title{
+	border-top: 0;
+}
+.ibox label{
+	font-weight: 200;
+}
+#box-type .form-group{
+	overflow: hidden;
+}
+#box-type .ibox-content{
+	display: none;
+}
+.inline-control{
+	display    : inline-block;
+	margin-left: 10px;
+}
+.inline-control i.fa-trash-o{
+	color: #900;
+}
+.note-help.btn-group{
+    display: none;
+}
+
+.gallery .form-group .images-plus{
+	display: none;
+}
+.gallery .form-group:last-child .images-plus{
+	display: block;
+}
+.select-image-wrapper{
+	background: #fff;
+	padding-bottom: 15px;
+}
+.action-btn{
+	border-top :1px dashed #ddd;
+	padding-top: 15px;
+}
+ul.thumbnails.image_picker_selector{
+	overflow: auto;
+	/*border:2px solid #333;*/
+	padding : 15px;
+}
+ul.thumbnails.image_picker_selector .thumbnail{
+	border-radius:0;
+	margin-bottom: 5px;
+	transition:0.4s;
+}
+ul.thumbnails.image_picker_selector .thumbnail img{
+	height: 150px;
+	min-width: 100px;
+}
+.add-image,.select-image{
+	min-height: 150px;
+	line-height: 150px;
+	text-align: center;
+	background-color: #f1f1f1;
+	font-size: 20px;
+	margin-bottom: 20px;
+	cursor: pointer;
+}
+#select-image,#add-image,#spinner,#cropper{
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,0.9);
+	position: absolute;
+  	display: none;
+  	z-index: 10000;
+  	padding-top: 50px;
+  	padding-bottom: 50px;
+
+}
+#add-image{	
+  	z-index: 20000;  	
+}
+#spinner{	
+	background: rgba(0,0,0,0.7);
+  	z-index: 30000;  	
+}
+#spinner .sk-spinner-circle{
+	top: 45%;
+}
+#cropper{
+	/*display: block;*/
+	top: 0;
+}
+#cropper .img-preview{
+	margin-bottom: 15px;
+}
+.set-wrapper{
+	background: #fff;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.image_picker_selector{	
+	overflow: auto;
+}
+.image_picker_selector .add-image{	
+	line-height: 165px;
+	width: 165px;
+}
+.dropzone{
+	border-radius: 0px;
+	margin-top   : 15px;
+	margin-bottom: 15px;
+	background   : #fff;
+}
+#add-image .action-btn{
+	position: absolute;
+	bottom  : 0;
+	left    : 0;
+}
+.delete-images{
+	cursor: pointer;
+}
+.dz-error-message{
+	display: none !important;
+}
+.thumbnail p{
+	text-align: center;
+}
+.thumbnail.selected p{
+	color: #fff;
+}
+.show-image{
+	position: relative;
+}
+#order-image{
+	clear: both;
+}
+.old-image{
+	transition:0.3s;
+	min-height: 160px;
+	width: 100%;
+	padding: 10px 0;
+	vertical-align: top;
+	cursor: pointer;
+}
+.old-image img{
+	margin-right: 15px;
+	float: left;
+	max-width: 100%;
+}
+.old-image input{
+	float: left;
+	
+}
+.old-image .badge-danger{
+	cursor: pointer;
+	margin-top: 3px;	
+}
+.badge-image{
+	clear: both;
+}
+.action-zone{
+	margin-top: 15px;
+}
+.delete-file{
+	cursor: pointer;
+}
+.file-name{
+	transition:0.3s;
+}
+.form-group label+label{
+	margin-left: 15px;
+}
+.cms_show:hover{
+	background: #f9f9f9;
+}
+.cms_show{
+	border-bottom: 1px dashed #ddd;
+	padding:10px;
+}
+.obj_name{
+	color: #333;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	background: #fff;
+}
+.alert{
+	border-radius: 0;
+}
+.page-heading{
+	padding-bottom: 10px;
+}
+
+#box-menu .ibox, .ui-sortable .ibox{
+	margin-bottom: 10px;
+	cursor       : move;
+}
+.note-style .dropdown-menu{
+	z-index: 10000;
+}
+.dataTables_filter input{
+	border: 1px #ccc solid;
+	/*line-height: 28px;*/
+	padding: 5px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+	background:#fdfdfd;
+}
+.dataTable th{
+	text-align: center;
+}
+.dataTable tr td:first-child{
+	text-align: center;
+}
+.dataTable tr td:last-child{
+	text-align: center;
+}
+.dataTable a{
+	color: #333;
+}
+#table_wrapper{
+	overflow: auto;
+}
+.form-holder .form-group{
+	max-width: 50%;
+}
+.form-holder .form-group.googlemap{
+	max-width: 100%;
+}
+.form-holder .form-group.google{
+	max-width: 100%;
+}

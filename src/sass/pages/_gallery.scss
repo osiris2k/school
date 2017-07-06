@@ -1,0 +1,291 @@
+
+.content-nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 995;
+  background-color: #faf9f4;
+  @include fp(height,91,120,$start:1024,$end:1380);
+  @include fp(padding-left,35,40,$start:1024,$end:1380);
+  @include fp(padding-right,35,40,$start:1024,$end:1380);
+  @include fp(font-size,11,14,$start:1024,$end:1380);
+
+  @include media-breakpoint-down(md) {
+    @include fp(height,61,120);
+    @include fp(font-size,13,14);
+    @include fp(padding-left,15,55);
+    @include fp(padding-right,15,55);
+  }
+
+  ~ .post-content {
+    // padding-top: 100px;
+    @include fp(padding-top,60,100,$end:1380);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    //padding-left: 210 + 15;
+    @include fp(padding-left,160 + 15,210 + 15,$start:1024,$end:1380);
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    @include media-breakpoint-down(md) {
+      padding-left: 0;
+    }
+
+    li {
+      font-family: $font-montserrat-medium;
+      font-size: 1em;
+
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      height: 100%;
+      // height: em(120,14);
+      // &:not(:last-child) {
+      //   margin-right: 50px;
+      // }
+
+      a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: #1d1d1d;
+        transition: .9s cubic-bezier(.18,1,.21,1);
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 4px;
+          background-color: $brand-night;
+          z-index: 1;
+          transform-origin: right top;
+          transform: scaleX(0);
+          // transition-property: transform;
+          // transition-duration: 0.75s;
+          // transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+          transition: transform .9s cubic-bezier(.18,1,.21,1);
+          @include media-breakpoint-down(md) {
+            content: none;
+          }
+        }
+        &:hover, &.active {
+          color: $brand-night;
+        }
+        &.active {
+          pointer-events: none;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  &.gallery-nav {
+    background-color: #1d1d1d;
+    @include media-breakpoint-down(md) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    ul {
+      li {
+        a {
+          color: $white;
+          &:hover, &.active {
+            color: $brand-night;
+          }
+          &:hover {
+            &:before {
+              transform-origin: left top;
+              transform: scaleX(1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .gallery-filter-container {
+    height: 100%;
+    @include fp(padding-left,160 + 15,210 + 15,$start:1024,$end:1380);
+
+    @include media-breakpoint-down(md) {
+      padding-left: 0;
+    }
+    ul {
+      padding-left: 0;
+    }
+
+    .gallery-filter{
+      height: 100%;
+      .current-group{
+        // padding: 0 20px;
+        display: none;
+        height: 100%;
+        a {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          font-family: $font-montserrat-medium;
+          font-size: 1em;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: $brand-night;
+          // height: em(120,14);
+          // line-height: em(120,14);
+
+          &:after {
+            content: "\e900";
+            color: $brand-night;
+            font-family: 'publico' !important;
+            position: absolute;
+            z-index: 1;
+            right: em(30,14);
+            @include center(y);
+            display: block;
+            pointer-events: none;
+          }
+          &.open {
+            &:after {
+              content: "\e915";
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // responsive
+  @include media-breakpoint-down(md) {
+    .gallery-filter-container {
+      .gallery-filter{
+        .current-group{
+          display: block;
+        }
+        ul{
+          display: none;
+          position: absolute;
+          width: 100%;
+          height: auto;
+          left: 0;
+          top: 100%;
+          background: #1d1d1d;
+          @include fp(padding-bottom,30,60);
+          li{
+            display: block;
+            height: auto;
+            a {
+
+              @include fp(height,45,60);
+
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.section-gallery {
+  overflow: initial;
+  padding-bottom: 0;
+  @include fp(padding-top,90,120,$start:1024,$end:1380);
+  @include media-breakpoint-down(md) {
+    @include fp(padding-top,60,120);
+  }
+
+  .c-row {
+    .c-col-sm {
+      width: 25%;
+      cursor: none;
+      visibility: hidden;
+      @include media-breakpoint-down(md) {
+        width: 50%;
+      }
+
+      &.pc-item-active{
+        cursor: pointer;
+        visibility: visible;
+      }
+    }
+  }
+
+  .c-block {
+    figure {
+      background-color: $black;
+      img {
+        transition: opacity 0.3s ease;
+      }
+    }
+
+    &:hover {
+      figure {
+        img {
+          opacity: .4;
+        }
+      }
+      .c-view {
+        filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .content-container {
+    overflow: hidden;
+  }
+
+  .post-link {
+    margin-top: em(50,18);
+  }
+}
+
+.c-view {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: center;
+  font-size: 0;
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #232323;
+    @include fp(font-size,10.39,14,$start:1024,$end:1380);
+    font-family: $font-montserrat-medium;
+    line-height: normal;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background-color: $white;
+    padding-left: em(35,14);
+    padding-right: em(35,14);
+    padding-top: 2px;
+    text-align: center;
+    height: em(48,14);
+    @include media-breakpoint-down(md) {
+      @include fp(font-size,11,14);
+    }
+    @include media-breakpoint-down(xs) {
+      padding-left: em(20,14);
+      padding-right: em(20,14);
+    }
+  }
+}

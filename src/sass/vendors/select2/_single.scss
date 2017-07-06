@@ -1,0 +1,32 @@
+.select2-selection--single {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: $form-input-height;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  .select2-selection__rendered {
+    display: block;
+    padding-left: $form-input-padding-x;
+    padding-right: $form-select-arrow-width;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .select2-selection__clear {
+    position: relative;
+  }
+}
+
+&[dir="rtl"] {
+  .select2-selection--single {
+    .select2-selection__rendered {
+      padding-right: $form-input-padding-x;
+      padding-left: $form-select-arrow-width;
+    }
+  }
+}

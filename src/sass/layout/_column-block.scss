@@ -1,0 +1,308 @@
+.c-row {
+  font-size: 0;
+  @include clearfix;
+  > [class*="c-col-"] {
+    position: relative;
+    width: 100%;
+    display: block;
+    vertical-align: top;
+    float: left;
+  }
+  .c-col-sm {
+    @include media-breakpoint-up(sm) {
+      width: 50%;
+    }
+  }
+  .c-col-full {
+    // margin-top: -1px;
+    @include media-breakpoint-up(lg) {
+      width: 50%;
+    }
+  }
+
+  .box-large {
+    .c-col-sm {
+      @include media-breakpoint-up(sm) {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        top: auto;
+      }
+    }
+    &.left-top {
+      .c-col-sm {
+        @include media-breakpoint-up(sm) {
+          left: 0;
+          top: 0;
+          right: auto;
+          bottom: auto;
+        }
+      }
+    }
+    &.left-bottom {
+      .c-col-sm {
+        @include media-breakpoint-up(sm) {
+          left: 0;
+          bottom: 0;
+          right: auto;
+          top: auto;
+        }
+      }
+    }
+    &.right-top {
+      .c-col-sm {
+        @include media-breakpoint-up(sm) {
+          right: 0;
+          top: 0;
+          left: auto;
+          bottom: auto;
+        }
+      }
+    }
+  }
+}
+// COLUMN BLOCK
+.c-block {
+  position: relative;
+  display: block;
+
+  .c-block-inner {
+    position: relative;
+    width: 100%;
+  }
+
+  figure {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    background-color: $white;
+    img {
+      // -webkit-transition: .9s cubic-bezier(.18,1,.21,1);
+      // transition: .9s cubic-bezier(.18,1,.21,1);
+      transition: 1.2s transform cubic-bezier(.165,.84,.44,1);
+    }
+  }
+
+  .c-block-content {
+    position: relative;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: .9s cubic-bezier(.18,1,.21,1);
+    transition: .9s cubic-bezier(.18,1,.21,1);
+  }
+
+  /* ALL RATIO*/
+  &[class*="ratio-"] {
+    &:before {
+      display: block;
+      content: "";
+      width: 100%;
+    }
+    .c-block-inner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      figure {
+        height: 100%;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          -o-object-fit: cover;
+          object-fit: cover;
+          -o-object-position: center;
+          object-position: center;
+        }
+      }
+      .c-block-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+    }
+    .c-block-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba($white,0);
+      z-index: 2;
+    }
+  }
+}
+
+.ratio-21by9 {
+  &::before {
+    padding-top: percentage(9 / 21);
+  }
+}
+
+.ratio-16by9 {
+  &::before {
+    padding-top: percentage(9 / 16);
+  }
+}
+
+.ratio-4by3 {
+  &::before {
+    padding-top: percentage(3 / 4);
+  }
+}
+
+.ratio-1by1 {
+  &::before {
+    padding-top: percentage(1 / 1);
+  }
+}
+
+.ratio-3by4 {
+  &::before {
+    padding-top: percentage(4 / 3);
+  }
+}
+
+.ratio-2by1 {
+  &::before {
+    padding-top: percentage(1 / 2);
+  }
+}
+
+.ratio-1by2 {
+  &::before {
+    padding-top: percentage(2 / 1);
+  }
+}
+
+// COLUMN CONTENT OVERLAY
+.c-block-overlay {
+  .c-block-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+
+    .c-block-title, .c-block-subtitle {
+      opacity: 0;
+      -webkit-transform: translateY(125%);
+      transform: translateY(125%)
+    }
+  }
+  &:hover {
+    figure {
+      img {
+        opacity: 1 - 0.8;
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+      }
+    }
+    .c-block-content {
+      opacity: 1;
+      visibility: visible;
+      .c-block-title, .c-block-subtitle {
+        -webkit-animation: HoverFadeIn 0.6s;
+        animation: HoverFadeIn 0.6s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+      }
+      .c-block-title {
+        -webkit-animation-delay: 0.1s;
+        animation-delay: 0.1s;
+      }
+      .c-block-subtitle {
+        -webkit-animation-delay: 0.3s;
+        animation-delay: 0.3s;
+      }
+    }
+  }
+}
+
+// COLUMN BLOCK SHADOW
+.c-block-shadow {
+
+  figure {
+    &:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#232323), to(rgba(35,35,35,0)));
+      background: -webkit-linear-gradient(top, #232323 0%, rgba(35,35,35,0) 50%);
+      background: -o-linear-gradient(top, #232323 0%, rgba(35,35,35,0) 50%);
+      -webkit-transition: 0.9s cubic-bezier(0.18, 1, 0.21, 1);
+      transition: 0.9s cubic-bezier(0.18, 1, 0.21, 1);
+    }
+  }
+  .c-block-content {
+    .c-block-title, .c-block-subtitle {
+      color: $white;
+    }
+  }
+  &:hover {
+    figure {
+      &:after {
+        background-color: rgba(21,21,21,0.45);
+      }
+      img {
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@-webkit-keyframes HoverFadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(125%);
+    transform: translateY(125%)
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+}
+
+@keyframes HoverFadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(125%);
+    transform: translateY(125%)
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+}

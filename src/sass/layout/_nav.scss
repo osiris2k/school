@@ -1,0 +1,383 @@
+
+.nav-wrapper {
+  position: fixed;
+  left: 74px;
+  right: 74px;
+  // background-color: $white;
+  z-index: 999;
+  user-select:none;
+  @include fp(font-size,25.24,34,$start:1024,$end:1380);
+
+  @include media-breakpoint-down(md) {
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    @include fp(font-size,21,34);
+  }
+  @media (max-width: 360px) {
+    bottom: 50px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(#e1e1e1,.3);
+    z-index: 4;
+  }
+
+
+  // toggle
+  // transform: translate3d(-100%,0,0);
+  // transition-property: transform;
+  // transition-duration: .6s;
+  // transition-timing-function: ease-in-out;
+
+  &.nav-is-open {
+    width: calc(100% - 148px);
+    height: 100%;
+    @include media-breakpoint-down(md) {
+      width: 100%;
+      height: auto;
+      top: 0;
+    }
+    // transform: translate3d(0,0,0);
+    // transition-property: transform;
+    // transition-duration: .6s;
+    // transition-timing-function: ease-in-out;
+    .nav-block {
+      display: block;
+    }
+  }
+  .nav-block {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: none;
+    background-color: white;
+    // display: none;
+    /* &:before {*/
+    /*   content: "";*/
+    /*   display: block;*/
+    /*   padding-top: percentage(780 / $page-w-inner);*/
+    /* }*/
+    .nav-block-inner {
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+  }
+
+  .backgrounds, .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .backgrounds {
+
+    background: $brand;
+  }
+
+  .background {
+    background: $white;
+  }
+}
+
+
+// NAV LETTERS
+.nav-letters {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+  span {
+    position: absolute;
+    color: rgba($brand, .4);
+    font-size: em(156,34);
+    width: 1em;
+    height: 1em;
+    &:nth-child(1) {
+      left: percentage((153 - 22) / $page-w-inner);
+      top: percentage((58 - 6) / $page-h);
+    }
+    &:nth-child(2) {
+      left: percentage((458 - 15) / $page-w-inner);
+      top: percentage((102 - 6) / $page-h);
+    }
+    &:nth-child(3) {
+      left: percentage((750 - 21) / $page-w-inner);
+      top: percentage((61 - 6) / $page-h);
+    }
+    &:nth-child(4) {
+      left: percentage((362 - 30) / $page-w-inner);
+      top: percentage((300 - 6) / $page-h);
+    }
+    &:nth-child(5) {
+      left: percentage((785 - 59) / $page-w-inner);
+      top: percentage((328 - 6) / $page-h);
+    }
+    &:nth-child(6) {
+      left: percentage((373 - 10) / $page-w-inner);
+      top: percentage((576 - 2) / $page-h);
+    }
+    &:nth-child(7) {
+
+      left: percentage((778 - 1) / $page-w-inner);
+      top: percentage((559 - 3) / $page-h);
+    }
+  }
+
+
+}
+// animation
+.nav-letters{
+  span{
+    // opacity: 0;
+    // transform: translate3d(0,-30%,0);
+    //
+    // transition: transform .3s $easeOutCubic .3s, opacity .3s $easeOutCubic;
+  }
+}
+.nav-is-open{
+  .nav-letters{
+    span{
+      // opacity: 1;
+      // transform: translate3d(0,0,0);
+      //
+      // transition: transform .6s $easeOutCubic .6s, opacity .6s $easeOutCubic .6s;
+
+      // @for $i from 1 through 7{
+      //   &:nth-child(#{$i}){
+      //     transition-delay: 0.3 + $i * 0.1 + s;
+      //   }
+      // }
+    }
+  }
+}
+
+
+.nav {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  @include media-breakpoint-down(md) {
+    text-align: center;
+    // padding-top: 60px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (max-width: 360px) {
+    // padding-top: 50px;
+  }
+  .inner {
+    height: 100%;
+  }
+  ul.main-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    // font-size: 0;
+    height: 100%;
+    padding-top: percentage(55 / $page-h);
+    padding-bottom: percentage(55 / $page-h);
+    @include clearfix;
+
+    @include media-breakpoint-down(md) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    > li {
+      float: left;
+      display: block;
+      width: 50%;
+      height: 25%;
+      padding-left: percentage(155 / $page-w-inner);
+
+      &:nth-child(1){
+        display: none;
+      }
+
+      @include media-breakpoint-down(md) {
+        float: none;
+        width: 100%;
+        height: auto;
+        padding-left: 0;
+
+        &:not(:first-child) {
+          margin-top: em(35-10,34);
+        }
+        &:nth-child(1){
+          display: block;
+        }
+      }
+
+
+
+
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(8),
+      &:nth-child(9) {
+        .menu-block {
+          padding-left: percentage(65 / 461);
+          @include media-breakpoint-down(md) {
+            padding-left: 0;
+          }
+        }
+      }
+
+      &:last-child {
+        @include media-breakpoint-down(md) {
+          margin-top: em(70-8,34);
+        }
+        h3 {
+          @include media-breakpoint-down(md) {
+            font-size: em(22,34);
+          }
+        }
+      }
+      .menu-block {
+        height: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        @include media-breakpoint-down(md) {
+          height: auto;
+        }
+
+        > a {
+          display: block;
+          transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+          &:hover {
+            transform: translateX(50px);
+            @include media-breakpoint-down(md) {
+              transform: none;
+            }
+            h3 {
+              &:before {
+                transform: scaleX(1);
+              }
+            }
+          }
+        }
+
+      }
+
+      h3 {
+        position: relative;
+        color: $black-dark;
+        // font-size: 34px;
+        font-size: 1em;
+        line-height: 1;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin: 0;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: -55px;
+          width: 45px;
+          height: 4px;
+          margin-top: -3px;
+          background-color: $black-dark;
+          transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+          transform-origin: 0 0;
+          transform: scaleX(0);
+          @include media-breakpoint-down(md) {
+            content: none;
+          }
+        }
+        ~ span {
+          // margin-top: 25px - 9;
+          margin-top: em(20-8,17);
+        }
+      }
+      span {
+        display: block;
+        color: $black-dark;
+        font-size: em(17,34);
+        line-height: 1;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        @include media-breakpoint-down(md) {
+          display: none;
+        }
+      }
+    }
+  }
+  .n-social {
+    margin-top: em(20-6,34);
+    @include media-breakpoint-down(md) {
+      margin-top: em(35-4,34);
+
+    }
+    ul {
+      @include media-breakpoint-down(md) {
+        justify-content: center;
+      }
+      li {
+        // font-size: em(24,34);
+        font-size: 24px;
+        @include media-breakpoint-down(md) {
+          font-size: em(44,42);
+        }
+        &:not(:last-child) {
+          margin-right: em(30,24);
+        }
+        a {
+          color: $black-dark;
+        }
+      }
+    }
+  }
+}
+
+
+// animation
+// nav{
+//   ul.main-menu > li {
+//     opacity: 0;
+//     transform: translate3d(0,-30px,0);
+//     transition: transform .3s $easeOutCubic .3s, opacity .3s $easeOutCubic;
+//   }
+//
+//   &.nav-is-open{
+//     ul.main-menu > li {
+//       opacity: 1;
+//       transform: translate3d(0,0,0);
+//       @for $i from 1 through 10{
+//         &:nth-child(#{$i}){
+//           $delay: .8 + $i * 0.05 + s;
+//           transition: transform .6s $easeOutCubic $delay, opacity .6s $easeOutCubic $delay;
+//         }
+//       }
+//     }
+//
+//   }
+// }

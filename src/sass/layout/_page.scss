@@ -1,0 +1,111 @@
+
+
+.global-container {
+  overflow: hidden;
+}
+.page-container {
+  position: relative;
+  overflow: hidden;
+  padding-left: 74px;
+  padding-right: 74px;
+  @include media-breakpoint-down(md) {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 60px;
+  }
+  @media (max-width: 360px) {
+    padding-bottom: 50px;
+  }
+}
+
+body.home {
+  .page-container {
+    @include media-breakpoint-down(md) {
+      padding-top: 60px;
+
+    }
+    @media (max-width: 360px) {
+      padding-top: 50px;
+    }
+  }
+}
+.main-content {
+  position: relative;
+  display: block;
+  z-index: 1;
+}
+.section {
+  position: relative;
+  overflow: hidden
+}
+
+.social {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    li {
+      display: inline-block;
+      font-size: 24px;
+      &:not(:last-child) {
+        margin-right: em(20,24);
+      }
+      a {
+        position: relative;
+        display: block;
+        color: $white;
+        transition-duration: .45s;
+        transition-property: color,opacity,transform;
+        transition-delay: 0s;
+        transition-timing-function: ease-in-out;
+
+        i {
+          display: inline-block;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+        }
+        &:hover {
+          color: $brand;
+          -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+        }
+      }
+    }
+  }
+}
+
+.to-load{
+  &.no-anim{
+    transform: translate3d(0,75px,0);
+    backface-visibility: hidden;
+    opacity: 0;
+
+    transition: transform .3s ease-in-out,opacity .3s ease-in-out;
+  }
+  &.loaded{
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    opacity: 1;
+
+    transition: transform .95s ease-in-out,opacity .95s ease-in-out;
+  }
+}
+
+// .to-load.no-anim {
+//     // transition-duration: .95s;
+//     // transition-property: transform,opacity;
+//     // transition-delay: 0s;
+//     // transition-timing-function: ease-in-out;
+//
+//
+// }
+//
+// .to-load.loaded {
+//
+// }

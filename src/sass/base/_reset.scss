@@ -1,0 +1,245 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  outline: none;
+}
+
+@at-root {
+  @-ms-viewport { width: device-width; }
+}
+
+html {
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+// html.noscroll body {
+//   overflow: hidden;
+// }
+
+// html.noscroll, html.noscroll body {
+//     overflow: hidden !important;
+//         height: 100% !important;
+// }
+// html {
+//   &.noscroll {
+//     overflow-y: scroll !important;
+//         margin-top: 0 !important;
+//   }
+// }
+
+body, html {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  // height: 100%;
+  // min-width: 320px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+body {
+  font-family: $font-family-base;
+  color: $body-color;
+  @include font-smoothing;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  &.overflow-hidden {
+    height: 100%;
+    width: 100%;
+    overflow: hidden !important;
+  }
+}
+
+// ::-moz-selection {
+//   color: $white;
+//   background-color: $brand;
+//   text-shadow: none;
+// }
+//
+// ::selection {
+//   color: $white;
+//   background-color: $brand;
+//   text-shadow: none;
+// }
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+/* Abbreviations*/
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+}
+
+address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  line-height: inherit;
+}
+
+dd {
+  margin-bottom: .5rem;
+  margin-left: 0; /* Undo browser default*/
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}
+
+/**/
+/* Links*/
+/**/
+
+a {
+  color: $link-color;
+  text-decoration: $link-decoration;
+
+  @include hover-focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    -moz-outline-style: none;
+    outline: 0;
+  }
+}
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+  outline: 0;
+
+  @include hover-focus {
+    color: inherit;
+    text-decoration: none;
+    -moz-outline-style: none;
+    outline: 0;
+  }
+
+  &:focus {
+    -moz-outline-style: none;
+    outline: 0;
+  }
+}
+
+/**/
+/* Code*/
+/**/
+
+pre {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  overflow: auto;
+}
+
+
+/**/
+/* Figures*/
+/**/
+
+figure {
+  margin: 0 0 1rem;
+}
+
+/**/
+/* Images*/
+/**/
+
+img {
+  vertical-align: middle;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* iOS "clickable elements" fix for role="button"*/
+[role="button"] {
+  cursor: pointer;
+}
+
+
+/* Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.*/
+a,
+area,
+button,
+[role="button"],
+input,
+label,
+select,
+summary,
+textarea {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+
+/**/
+/* Forms*/
+/**/
+label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+button:focus {
+  outline: 1px dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+input,
+button,
+select,
+textarea {
+  line-height: inherit;
+}
+
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox;
+}
+
+textarea {
+  resize: vertical;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: .5rem;
+  font-size: 1.5rem;
+  line-height: inherit;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+output {
+  display: inline-block;
+}
+
+[hidden] {
+  display: none !important;
+}

@@ -1,0 +1,46 @@
+
+
+
+/*
+// helpers classes
+// --------------------------------------------------*/
+.wrapper {
+  font-size: 0;
+}
+.wrapper-valign {
+  font-size: 0;
+}
+.wrapper-full,
+.wrapper-panel {
+  height: 100%;
+  width: 100%;
+}
+.wrapper-abs,
+.wrapper-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.wrapper-valign:after,
+.wrapper-valign > .after {
+  content: "";
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  height: 100%;
+  width: 0;
+  vertical-align: middle;
+}
+.wrapper-o {
+  overflow: hidden;
+}
+.outer {
+    display: table;
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+}
+.inner {
+    display: table-cell;
+    vertical-align: middle;
+}
